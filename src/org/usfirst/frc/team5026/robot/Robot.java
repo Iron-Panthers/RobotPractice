@@ -5,8 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.RobotPractice.src.org.usfirst.frc.team5026.robot;
-
+package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
@@ -26,6 +25,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
+	public static final ExampleSubsystem kExampleSubsystem
+			= new ExampleSubsystem();
 	public static OI m_oi;
 	public static Drive drive;
 	public static Hardware hardware;
@@ -42,6 +43,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		Robot.hardware = new Hardware();
 		m_oi = new OI();
+		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
