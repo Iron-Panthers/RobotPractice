@@ -7,13 +7,13 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.subsystems.Drive;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
-import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,10 +23,10 @@ import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
 	public static OI m_oi;
+	public static Drive drive;
 	public static Hardware hardware;
+
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		Robot.hardware = new Hardware();
 		m_oi = new OI();
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		//m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
