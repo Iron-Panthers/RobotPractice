@@ -1,15 +1,14 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import org.usfirst.frc.team5026.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5026.robot.Robot;
 
 /**
  *
  */
-public class DriveWIthJoystick extends Command {
+public class DriveWithJoystick extends Command {
 
-    public DriveWIthJoystick() {
+    public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
@@ -21,8 +20,8 @@ public class DriveWIthJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.m_oi.stick.getY();
-    	double turn = Robot.m_oi.stick.getX();
+    	double speed = Robot.m_oi.stick1.getY();
+    	double turn = Robot.m_oi.stick1.getX();
     	Robot.drive.arcadeDrive(speed,turn);
     }
 
