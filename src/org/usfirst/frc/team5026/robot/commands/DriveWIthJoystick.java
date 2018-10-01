@@ -21,9 +21,9 @@ public class DriveWIthJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.m_oi.stick.getY();
-    	double turn = Robot.m_oi.stick.getX();
-    	Robot.drive.arcadeDrive(speed,turn);
+    	//double speed = Robot.m_oi.stick.getY();
+    	//double turn = Robot.m_oi.stick.getX();
+    	//Robot.drive.arcadeDrive(speed,turn);
     }
 
     // Make this return true when this Command no longer needs to run execute()
