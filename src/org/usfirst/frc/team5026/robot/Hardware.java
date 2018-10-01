@@ -15,10 +15,10 @@ public class Hardware {
 
 	
 	public Hardware() {
-		this.driveRMotor1 = new TalonSRX(0);
+		this.driveRMotor1 = new TalonSRX(3);
 		this.driveRMotor2 = new TalonSRX(1);
 		this.driveRMotor3 = new TalonSRX(2);
-		this.driveLMotor1 = new TalonSRX(3);
+		this.driveLMotor1 = new TalonSRX(10);
 		this.driveLMotor2 = new TalonSRX(4);
 		this.driveLMotor3 = new TalonSRX(5);
 		driveLMotor2.follow(driveLMotor1);
