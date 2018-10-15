@@ -23,16 +23,8 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double y = Robot.m_oi.stick1.getX();
-    	double x = Robot.m_oi.stick1.getY();
-    	if (Math.abs(x) < 0.1) {
-    		x = 0;
-    	}
-    	if (Math.abs(y) < 0.1) {
-    		y = 0;
-    	}
-    	Robot.hardware.driveLMotor1.set(ControlMode.PercentOutput, (y+x));
-    	Robot.hardware.driveRMotor1.set(ControlMode.PercentOutput, (y-x));
+    	Robot.hardware.driveLMotor1.set(ControlMode.PercentOutput, Robot.m_oi.stick1.findLeftPower());
+    	Robot.hardware.driveRMotor1.set(ControlMode.PercentOutput, Robot.m_oi.stick1.findRightPower());
     }
 
     // Make this return true when this Command no longer needs to run execute()
