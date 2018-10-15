@@ -22,7 +22,7 @@ public class OI {
 		this.stick1 = new Joystick(0);
 		this.button1 = new JoystickButton(stick1, 1);
 		this.button2 = new JoystickButton(stick1, 2);
-		this.button1.whileHeld (new DriveForward());
-		this.button2.whileHeld (new DriveBackward());
+//		this.button1.whileHeld (new DriveForward());
+//		this.button2.whileHeld (new DriveBackward());
 	}
 }
