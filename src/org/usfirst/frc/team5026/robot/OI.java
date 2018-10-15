@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.util.GoodJoystick;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -15,11 +17,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public Joystick stick1;
+	public GoodJoystick stick1;
 	public JoystickButton button1;
 	public JoystickButton button2;
 	public OI() {
-		this.stick1 = new Joystick(0);
+		this.stick1 = new GoodJoystick(0);
 		this.button1 = new JoystickButton(stick1, 1);
 		this.button2 = new JoystickButton(stick1, 2);
 //		this.button1.whileHeld (new DriveForward());
