@@ -13,18 +13,22 @@ public class GoodJoystick extends Joystick {
 		y = 0;
 		magnitude = 0;
 	}
-	
+	/**
+	 * Gets Vector of joystick using pythagorean theorem
+	 * Uses magnitude so the power of the motors is equal to the distance from the center, and not y.
+	 * Applies deadzone to magnitude, then scales it to maintain the ability from having 0 to 1
+	 */
 	public void findMagnitude() {
 		x = getX();
 		y = getY();
-		//Gets Vector of joystick using pythagorean theorem
+		
 		magnitude = Math.abs(Math.sqrt(x * x + y * y));
+		
 		if (magnitude > 1) {
 			magnitude = 1;
 		}
-		//TODO: Normalize, and zero magnitude if less than deadzone, trigger reverse, scaling
 		
-		//Applies deadzone to magnitude, then scales it to maintain the ability from having 
+		//TODO: Normalize, and zero magnitude if less than deadzone, trigger reverse, scaling		
 		double scaledMagnitude = (magnitude - Constants.CIRCLE_DEADZONE) / (1 - Constants.CIRCLE_DEADZONE);
 		x *= scaledMagnitude;
 		y *= scaledMagnitude;
