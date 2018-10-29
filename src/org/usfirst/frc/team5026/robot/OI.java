@@ -6,7 +6,8 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team5026.robot;
-
+import org.usfirst.frc.team5026.robot.commands.ElevatorMoveTo;
+import org.usfirst.frc.team5026.robot.util.Constants;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -15,14 +16,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public Joystick stick1;
-	public JoystickButton button1;
-	public JoystickButton button2;
+	public Joystick stick;
+	public JoystickButton stickButton1;
 	public OI() {
-		this.stick1 = new Joystick(0);
-		this.button1 = new JoystickButton(stick1, 1);
-		this.button2 = new JoystickButton(stick1, 2);
-//		this.button1.whileHeld (new DriveForward());
-//		this.button2.whileHeld (new DriveBackward());
+		this.stick = new Joystick(Constants.STICK_1);
+		this.stickButton1 = new JoystickButton(stick, Constants.BUTTON_1);
+		this.stickButton1.whenPressed(new ElevatorMoveTo(Constants.ELEVATOR_TOP));
 	}
 }

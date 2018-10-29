@@ -7,8 +7,7 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.subsystems.Drive;
-
+import org.usfirst.frc.team5026.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -24,8 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot {
 	public static OI m_oi;
-	public static Drive drive;
 	public static Hardware hardware;
+	public static Elevator elevator;
 
 
 	Command m_autonomousCommand;
@@ -37,9 +36,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		hardware = new Hardware();
-		m_oi = new OI();
-		drive = new Drive();
+		Robot.hardware = new Hardware();
+		Robot.m_oi = new OI();
+		Robot.elevator = new Elevator();
 		//m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
