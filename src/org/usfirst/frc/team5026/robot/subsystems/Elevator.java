@@ -24,11 +24,13 @@ public class Elevator extends Subsystem {
 		masterMotor.config_kP(Constants.PID_IDX, Constants.ELEVATOR_P, Constants.TIMEOUT_MS);
 		masterMotor.config_kI(Constants.PID_IDX, Constants.ELEVATOR_I, Constants.TIMEOUT_MS);
 		masterMotor.config_kD(Constants.PID_IDX, Constants.ELEVATOR_D, Constants.TIMEOUT_MS);
+		masterMotor.configMotionAcceleration(Constants.ELEVATOR_ACCELERATION, Constants.TIMEOUT_MS);
+		masterMotor.configMotionCruiseVelocity(Constants.ELEVATOR_VELOCITY, Constants.TIMEOUT_MS);
 	}
 	public int currentPosition() {
 		return masterMotor.getSelectedSensorPosition(0);
 	}
-    public void move (double power) {
+    public void move(double power) {
     	masterMotor.set(ControlMode.PercentOutput,  power);
     }
     public void moveTo(int target) {
