@@ -8,8 +8,8 @@ public class Hardware {
 	public TalonSRX masterMotor;
 	public TalonSRX slaveMotor;
 	public Hardware() {
-		masterMotor = new TalonSRX(Constants.MOTOR_1);
-		slaveMotor = new TalonSRX(Constants.MOTOR_2);
-		slaveMotor.follow(masterMotor);			
+		masterMotor = new TalonSRX(RobotMap.ELEVATOR_MASTER);
+		slaveMotor = new TalonSRX(RobotMap.ELEVATOR_SLAVE);
+		slaveMotor.follow(masterMotor);
 	}
 }

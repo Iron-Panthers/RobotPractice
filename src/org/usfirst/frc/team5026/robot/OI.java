@@ -19,8 +19,8 @@ public class OI {
 	public Joystick stick;
 	public JoystickButton stickButton1;
 	public OI() {
-		this.stick = new Joystick(Constants.STICK_1);
-		this.stickButton1 = new JoystickButton(stick, Constants.BUTTON_1);
+		this.stick = new Joystick(RobotMap.STICK_1);
+		this.stickButton1 = new JoystickButton(stick, RobotMap.BUTTON_1);
 		this.stickButton1.whenPressed(new ElevatorMoveTo(Constants.ELEVATOR_TOP));
 	}
 }
