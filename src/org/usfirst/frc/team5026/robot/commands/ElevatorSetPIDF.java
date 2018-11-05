@@ -25,12 +25,12 @@ public class ElevatorSetPIDF extends Command {
     	double d = SmartDashboard.getNumber("Elevator D", 0);
     	int v = (int)SmartDashboard.getNumber("Elevator V Term", 0);
     	int a = (int)SmartDashboard.getNumber("Elevator A Term", 0);
-    	Robot.elevator.motors.motor1.config_kF(Constants.kSlotIdx, f, Constants.kTimeoutMs);
-    	Robot.elevator.motors.motor1.config_kP(Constants.kSlotIdx, p, Constants.kTimeoutMs);
-    	Robot.elevator.motors.motor1.config_kI(Constants.kSlotIdx, i, Constants.kTimeoutMs);
-    	Robot.elevator.motors.motor1.config_kD(Constants.kSlotIdx, d, Constants.kTimeoutMs);
-    	Robot.elevator.motors.motor1.configMotionCruiseVelocity(v, Constants.kTimeoutMs);
-    	Robot.elevator.motors.motor1.configMotionAcceleration(a, Constants.kTimeoutMs);
+    	Robot.elevator.masterMotor.config_kF(Constants.PID_IDX, f, Constants.TIMEOUT_MS);
+    	Robot.elevator.masterMotor.config_kP(Constants.PID_IDX, p, Constants.TIMEOUT_MS);
+    	Robot.elevator.masterMotor.config_kI(Constants.PID_IDX, i, Constants.TIMEOUT_MS);
+    	Robot.elevator.masterMotor.config_kD(Constants.PID_IDX, d, Constants.TIMEOUT_MS);
+    	Robot.elevator.masterMotor.configMotionCruiseVelocity(v, Constants.TIMEOUT_MS);
+    	Robot.elevator.masterMotor.configMotionAcceleration(a, Constants.TIMEOUT_MS);
     	System.out.println("PIDFAV: "+p+" "+i+" "+d+" "+f+" "+a+" "+v);
     }
 
