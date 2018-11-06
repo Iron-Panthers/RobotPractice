@@ -7,7 +7,9 @@
 
 package org.usfirst.frc.team5026.robot;
 import org.usfirst.frc.team5026.robot.commands.ElevatorMoveTo;
+import org.usfirst.frc.team5026.robot.commands.ElevatorSetPIDF;
 import org.usfirst.frc.team5026.robot.util.Constants;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -18,9 +20,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	public Joystick stick;
 	public JoystickButton stickButton1;
+	public JoystickButton stickButton2;
 	public OI() {
 		this.stick = new Joystick(RobotMap.STICK_1);
 		this.stickButton1 = new JoystickButton(stick, RobotMap.BUTTON_1);
+		this.stickButton2 = new JoystickButton(stick, RobotMap.BUTTON_2);
 		this.stickButton1.whenPressed(new ElevatorMoveTo(Constants.ELEVATOR_TOP));
+		this.stickButton2.whenPressed(new ElevatorSetPIDF());
 	}
 }
