@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5026.robot.subsystems;
 
+import org.usfirst.frc.team5026.robot.Robot;
 import org.usfirst.frc.team5026.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team5026.robot.util.Constants;
 
@@ -15,6 +16,8 @@ public class Drive extends Subsystem {
 	double right = 0;
 
 	public Drive() {
+		configPID(Robot.hardware.driveLMotor1);
+		configPID(Robot.hardware.driveRMotor1);
 	}
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
