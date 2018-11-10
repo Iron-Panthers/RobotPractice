@@ -7,6 +7,7 @@ public class Hardware {
 //	public TalonSRX driveRMotor2;
 //	public TalonSRX driveRMotor3;
 	public TalonSRX driveLMotor1;
+
 //	public Talon driveLMotor2;
 //	public Talon driveLMotor3;
 	public Hardware() {

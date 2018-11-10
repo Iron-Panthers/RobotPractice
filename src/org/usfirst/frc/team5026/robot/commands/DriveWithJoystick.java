@@ -11,11 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveWithJoystick extends Command {
 
-    public DriveWithJoystick() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.drive);
-    }
+	public DriveWithJoystick() {
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.drive);
+	}
 
     // Called joust before this Command runs the first time
     protected void initialize() {

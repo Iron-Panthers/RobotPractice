@@ -18,6 +18,7 @@ public class OI {
 	public Joystick stick1;
 	public JoystickButton button1;
 	public JoystickButton button2;
+
 	public OI() {
 		this.stick1 = new Joystick(0);
 		this.button1 = new JoystickButton(stick1, 1);
