@@ -17,8 +17,8 @@ public class Drive extends Subsystem {
 	public MotorGroup left;
 	public MotorGroup right;
 	public Drive() {
-		left = new MotorGroup(Robot.hardware.driveLMotor1, Robot.hardware.driveLMotor2, Robot.hardware.driveLMotor3);
-		right = new MotorGroup(Robot.hardware.driveRMotor1, Robot.hardware.driveRMotor2, Robot.hardware.driveRMotor3);
+		left = Robot.hardware.left;
+		right = Robot.hardware.right;
 	}
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -27,10 +27,10 @@ public class Drive extends Subsystem {
 	 * @param power
 	 * Between -1 and 1, relates to the voltage applied to the motor
 	 */
-	public void move(double power) {
-		left.set(power);
-		right.set(power);
-	}
+//	public void move(double power) {
+//		left.set(power);
+//		right.set(power);
+//	}
 	
 	/**
 	 * This move method sets the left and right power of the motors

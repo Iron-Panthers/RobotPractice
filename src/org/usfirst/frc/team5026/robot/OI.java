@@ -8,6 +8,8 @@
 package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.robot.commands.DriveFindF;
+import org.usfirst.frc.team5026.robot.commands.DriveToTarget;
+import org.usfirst.frc.team5026.robot.util.Constants;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,5 +33,6 @@ public class OI {
 	
 	public void mapButtons() {
 		this.button1.whileHeld(new DriveFindF());
+		this.button2.whileHeld(new DriveToTarget(Constants.BASELINE_TARGET));
 	}
 }

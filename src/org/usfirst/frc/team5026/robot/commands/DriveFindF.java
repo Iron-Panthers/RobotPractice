@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveFindF extends Command {
+	
+	long prevTicks;
+	long prevNano;
 
     public DriveFindF() {
     	requires(Robot.drive);
@@ -18,13 +21,21 @@ public class DriveFindF extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	prevTicks = Robot.drive.left.masterMotor.getSelectedSensorPosition(Constants.PID_IDX);
+    	prevNano = System.nanoTime();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.move(0.5);
-    	double velocity = Robot.drive.left.motors.get(0).getSelectedSensorVelocity(Constants.PID_IDX);
-    	System.out.println("F: "+ (0.5/velocity));
+    	long dTicks = Robot.drive.left.masterMotor.getSelectedSensorPosition(Constants.PID_IDX) - prevTicks;
+    	long dNanos = System.nanoTime() - prevNano;
+    	prevNano = System.nanoTime();
+    	double dMiliSec = ((double)dNanos) / 100000000.0;
+    	prevTicks = Robot.drive.left.masterMotor.getSelectedSensorPosition(Constants.PID_IDX);
+    	Robot.drive.move(0.5, 0.5);
+    	double velocity = dTicks / dMiliSec; //Robot.drive.left.masterMotor.getSelectedSensorVelocity(Constants.PID_IDX);
+    	System.out.println(dNanos);
+    	System.out.println("F: "+ (velocity/0.5));
     	
     }
 
