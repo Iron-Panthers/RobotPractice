@@ -1,36 +1,31 @@
 package org.usfirst.frc.team5026.robot.commands;
 
 import org.usfirst.frc.team5026.robot.Robot;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
+import org.usfirst.frc.team5026.robot.util.Constants;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveWithJoystick extends Command {
+public class DriveFindF extends Command {
 
-	public DriveWithJoystick() {
-		// Use requires() here to declare subsystem dependencies
-		requires(Robot.drive);
-	}
+    public DriveFindF() {
+    	requires(Robot.drive);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    }
 
-    // Called joust before this Command runs the first time
+    // Called just before this Command runs the first time
     protected void initialize() {
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double y = Robot.m_oi.stick1.getX();
-    	double x = Robot.m_oi.stick1.getY();
-    	if (Math.abs(x) < 0.1) {
-    		x = 0;
-    	}
-    	if (Math.abs(y) < 0.1) {
-    		y = 0;
-    	}
-    	Robot.drive.move((y + x), (y - x));
+    	Robot.drive.move(0.5);
+    	double velocity = Robot.drive.left.motors.get(0).getSelectedSensorVelocity(Constants.PID_IDX);
+    	System.out.println("F: "+ (0.5/velocity));
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

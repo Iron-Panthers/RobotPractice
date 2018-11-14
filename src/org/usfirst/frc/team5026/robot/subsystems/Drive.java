@@ -3,7 +3,9 @@ package org.usfirst.frc.team5026.robot.subsystems;
 import org.usfirst.frc.team5026.robot.Robot;
 import org.usfirst.frc.team5026.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team5026.robot.util.Constants;
+import org.usfirst.frc.team5026.robot.util.MotorGroup;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,30 +14,44 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Drive extends Subsystem {
-	double left = 0;
-	double right = 0;
-
+	public MotorGroup left;
+	public MotorGroup right;
 	public Drive() {
-		configPID(Robot.hardware.driveLMotor1);
-		configPID(Robot.hardware.driveRMotor1);
+		left = new MotorGroup(Robot.hardware.driveLMotor1, Robot.hardware.driveLMotor2, Robot.hardware.driveLMotor3);
+		right = new MotorGroup(Robot.hardware.driveRMotor1, Robot.hardware.driveRMotor2, Robot.hardware.driveRMotor3);
 	}
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
-
+	/**
+	 * The move method drives with a given power
+	 * @param power
+	 * Between -1 and 1, relates to the voltage applied to the motor
+	 */
+	public void move(double power) {
+		left.set(power);
+		right.set(power);
+	}
+	
+	/**
+	 * This move method sets the left and right power of the motors
+	 * @param leftPower
+	 * Between -1 and 1, relates to the voltage applied to the motor
+	 * @param rightPower
+	 * Between -1 and 1, relates to the voltage applied to the motor
+	 */
+	public void move(double leftPower, double rightPower) {
+		left.set(leftPower);
+		right.set(rightPower);
+	}
+	
+	public void moveTo(int target) {
+		left.moveTo(target);
+		right.moveTo(target);
+	}
+	
 	public void initDefaultCommand() {
 		setDefaultCommand(new DriveWithJoystick());
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-	}
-
-	public void arcadeDrive(double speed, double turn) {
-
-	}
-
-	public void configPID(TalonSRX motor) {
-		motor.config_kP(0, Constants.DRIVE_P, Constants.kTimeoutMs);
-		motor.config_kI(0, Constants.DRIVE_I, Constants.kTimeoutMs);
-		motor.config_kD(0, Constants.DRIVE_D, Constants.kTimeoutMs);
-		motor.config_kF(0, Constants.DRIVE_F, Constants.kTimeoutMs);
 	}
 }

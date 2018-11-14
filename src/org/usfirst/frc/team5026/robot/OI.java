@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.DriveFindF;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -18,12 +20,16 @@ public class OI {
 	public Joystick stick1;
 	public JoystickButton button1;
 	public JoystickButton button2;
+	public JoystickButton button3;
 
 	public OI() {
 		this.stick1 = new Joystick(0);
 		this.button1 = new JoystickButton(stick1, 1);
 		this.button2 = new JoystickButton(stick1, 2);
-//		this.button1.whileHeld (new DriveForward());
-//		this.button2.whileHeld (new DriveBackward());
+		this.button3 = new JoystickButton(stick1, 3);
+	}
+	
+	public void mapButtons() {
+		this.button1.whileHeld(new DriveFindF());
 	}
 }

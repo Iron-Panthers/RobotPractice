@@ -30,10 +30,10 @@ public class DrivePIDF extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	currentError = desiredVelocity - Robot.hardware.driveLMotor1.getSelectedSensorVelocity();
+    	currentError = desiredVelocity - Robot.drive.left.motors.get(0).getSelectedSensorVelocity(Constants.PID_IDX);
     	deltaError = currentError - previousError;
     	double PIDF = Constants.DRIVE_F*desiredVelocity + (currentError*Constants.DRIVE_P) + (totalError*Constants.DRIVE_I) + (deltaError*Constants.DRIVE_D);
-    	Robot.hardware.driveLMotor1.set(ControlMode.PercentOutput, PIDF);//incomplete
+    	Robot.drive.move(PIDF);
     	previousError = currentError;
     	totalError += currentError;
     }
