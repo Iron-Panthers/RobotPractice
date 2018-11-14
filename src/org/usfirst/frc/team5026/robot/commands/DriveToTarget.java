@@ -26,7 +26,7 @@ public class DriveToTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.drive.moveTo(target);
-    	Robot.drive.left.masterMotor.getSelectedSensorPosition(Constants.PID_IDX);
+    	System.out.println(Robot.drive.left.masterMotor.getSelectedSensorPosition(Constants.PID_IDX));
     }
 
     // Make this return true when this Command no longer needs to run execute()

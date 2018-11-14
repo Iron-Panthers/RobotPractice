@@ -10,8 +10,8 @@ public class Constants {
 	public static final int DRIVE_ACCELERATION = 9001; //Random
 	public static final int kTimeoutMs = 0; // Do not change
 	public static final int PID_IDX = 0; //0 For closed-loop control
-	public static final int DRIVE_TICK_TOLERANCE = 100; //Drive should be within 100 ticks of target
-	public static final int BASELINE_TARGET = 10000; //To be tested
+	public static final int DRIVE_TICK_TOLERANCE = 10; //Drive should be within 100 ticks of target
+	public static final int BASELINE_TARGET = 100000; //To be tested
 	
 	//Own PID for driving at a velocity
 	public static final double DRIVE_VELOCITY_P = 0;
